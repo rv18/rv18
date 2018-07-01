@@ -1,0 +1,38 @@
+(
+	action(action-ref)
+	AND action_takenby_assoc(action-ref, pump-ref) 
+	AND 
+	(
+		action_type(action-ref,action_type_value)
+		AND
+		action_type_value="antibiotics"
+	)
+	AND ONCE[0,*]
+	(
+		pump(pump-ref) AND pump_aids_assoc(pump-ref,patient-ref)
+	)
+	AND ONCE[0,*] patient(patient-ref)
+)
+AND EXISTS action-ref', pump-ref', action_type_value'. (
+	
+	ONCE[1,954133] (
+		action(action-ref')
+		AND
+		action_takenby_assoc(action-ref', pump-ref')
+		AND 
+		(
+			action_type(action-ref',action_type_value')
+			AND
+			action_type_value'="antibiotics"
+		)
+		)
+		AND ONCE[1,*]
+		(
+			 pump(pump-ref') AND pump_aids_assoc(pump-ref',patient-ref)
+		)
+	
+)
+
+
+
+	
