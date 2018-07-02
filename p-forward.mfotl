@@ -15,7 +15,7 @@
 )
 AND EXISTS action-ref', pump-ref', action_type_value'. 
 (
-	ONCE[1,954133] 
+	EVENTUALLY[1,954133] 
 	(
 		action(action-ref')
 		AND
